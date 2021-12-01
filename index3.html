@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*10 в ковычках это строка, поэтому будет выведена следом за числом*/
+        console.log(10+10+"10");
+        /*тк "10" написана между двух чисел, складываться не будет
+        а каждое число сложенное со строкой будет становиться строкой*/
+        console.log(10+"10"+10);
+        /*два плюса превратят "10" в число*/
+        console.log(10 + 10 + +"10");
+        /*-"" это будет -0
+        получается 10 делится на -0
+        из-за чего в ответе бесконечность*/
+        console.log(10 / -"");
+        /*2,5 написано через запятую, а не точку
+        поэтому будет прочитано как Nan
+        а 10 деленое на nan будет nan*/
+        console.log(10 / +"2,5"); 
+    </script>
+</body>
+</html>
