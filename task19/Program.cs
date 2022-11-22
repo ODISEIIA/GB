@@ -3,20 +3,29 @@
 // 23432 -> да
 // 12821 -> да
 
-Console.WriteLine("Введите число: ");
-string? number = Console.ReadLine();
-
-void CheckingNumber(string number)
+void CheckPalindromicNumber(int number)
 {
-    if (number[0] == number[4] || number[1] == number[3])
+    if(number >= 10000)
     {
-        Console.WriteLine($"Ваше число: {number} - палиндром");
+        int division1 = number / 10000;
+        int remainder1 = number % 10;
+ 
+            if(division1 == remainder1)
+            {
+                number = number / 10;
+                int division2 = number / 100;
+                int remainder2 = number % 10;
+                if(division2 == remainder2)
+                    Console.WriteLine("Да");
+            }
+            else 
+            Console.WriteLine("Нет");
+            
     }
-    else Console.WriteLine($"Ваше число: {number} - не палиндром");
+    else
+    Console.WriteLine("Некорректное число!");
 }
-
-if (number!.Length == 5)
-{
-    CheckingNumber(number);
-}
-else Console.WriteLine($"Введите правильное число");
+ 
+Console.WriteLine("Введите пятизначное число:");
+int number = int.Parse(Console.ReadLine()!);
+CheckPalindromicNumber(number);
