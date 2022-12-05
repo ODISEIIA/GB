@@ -3,30 +3,31 @@
 //[-4, -6, 89, 6] -> 0
 
 
-Console.WriteLine("Введите размер массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-FillArr(numbers);
-int sum = 0;
+int[] CreateArr (int size, int min, int max)
+{
+    int [] arr = new int[size];
+    Random rnd = new Random();
 
-for (int z = 0; z < numbers.Length; z+=2)
-sum = sum + numbers[z];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rnd.Next(min, max +1);
+    }
+    return arr;
+}
+
+void PrintArr(int[] arr)
+{
+    for(int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i] + " ");
+    }
+}
+
+int [] arr = CreateArr (4, -100, 100);
+int sum = 0;
+for (int i = 0; i < arr.Length; i+=2)
+sum = sum + arr[i];
 
 Console.Write("[ ");
-PrintArr(numbers);
+PrintArr(arr);
 Console.WriteLine($" ] -> {sum}");
-
-void FillArr(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = new Random().Next(-100,100);
-    }
-}
-void PrintArr(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        Console.Write(numbers[i] + " ");
-    }
-}
