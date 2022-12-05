@@ -12,8 +12,9 @@ for (int z = 0; z < numbers.Length; z++)
 if (numbers[z] % 2 == 0)
 count++;
 
+Console.Write("[ ");
 PrintArr(numbers);
-Console.WriteLine($"->{count}");
+Console.WriteLine($" ] -> {count}");
 
 void FillArr(int[] numbers)
 {
