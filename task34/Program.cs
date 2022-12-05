@@ -1,32 +1,34 @@
 ﻿//Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
 //[345, 897, 568, 234] -> 2
 
+int[] CreateArr (int size, int min, int max)
+{
+    int [] arr = new int[size];
+    Random rnd = new Random();
 
-Console.WriteLine("Введите размер массива");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-FillArr(numbers);
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rnd.Next(min, max +1);
+    }
+    return arr;
+}
+
+void PrintArr(int[] arr)
+{
+    for(int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i] + " ");
+    }
+}
+
+int [] arr = CreateArr (4, 99, 1000);
 int count = 0;
 
-for (int z = 0; z < numbers.Length; z++)
-if (numbers[z] % 2 == 0)
+for (int z = 0; z < arr.Length; z++)
+if (arr[z] % 2 == 0)
 count++;
 
-Console.Write("[ ");
-PrintArr(numbers);
-Console.WriteLine($" ] -> {count}");
 
-void FillArr(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        numbers[i] = new Random().Next(100,1000);
-    }
-}
-void PrintArr(int[] numbers)
-{
-    for(int i = 0; i < numbers.Length; i++)
-    {
-        Console.Write(numbers[i] + " ");
-    }
-}
+Console.Write("[ ");
+PrintArr(arr);
+Console.WriteLine($" ] -> {count}");
